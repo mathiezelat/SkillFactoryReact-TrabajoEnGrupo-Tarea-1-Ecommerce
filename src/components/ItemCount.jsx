@@ -14,8 +14,14 @@ const ItemCount = ({ stock, initial }) => {
 	return (
 		<div>
 			<p>Count: {count}</p>
-			<button onClick={decrease}>Decrease!</button>
-			<button onClick={increase}>Increase!</button>
+			<div className="d-flex gap-1">
+				<button className="btn btn-primary" onClick={decrease}>
+					Decrease
+				</button>
+				<button className="btn btn-primary" onClick={increase}>
+					Increase
+				</button>
+			</div>
 		</div>
 	)
 }
