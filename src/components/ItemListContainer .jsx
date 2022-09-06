@@ -1,5 +1,5 @@
-import ItemCount from './ItemCount'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const ItemListContainer = ({ nameEcommerce }) => {
 	const [products, setProducts] = useState([])
@@ -23,27 +23,32 @@ const ItemListContainer = ({ nameEcommerce }) => {
 	return (
 		<div className="px-5">
 			<h1>{nameEcommerce}</h1>
-			<div className="row row-cols-2 row-cols-md-4 g-4">
+			<div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xl-6 g-4">
 				{products.map(product => {
 					return (
-						<div key={product.key} className="col">
-							<div className="card h-100 ">
-								<img
-									className="card-img-top "
-									src={product.image}
-									alt={product.title}
-								/>
-								<div className="card-body">
-									<p className="card-title">
-										{product.title}
-									</p>
-									<p className="card-subtitle text-muted">
-										{product.price}
-									</p>
-									<ItemCount stock={15} initial={1} />
+						<Link key={product.id} to={`/product/${product.id}`}>
+							<div className="col h-100">
+								<div className="card h-100">
+									<img
+										className="card-img-top p-4"
+										style={{
+											height: '250px',
+											objectFit: 'contain',
+										}}
+										src={product.image}
+										alt={product.title}
+									/>
+									<div className="card-body">
+										<p className="card-title">
+											{product.title}
+										</p>
+										<p className="card-subtitle text-muted">
+											${product.price}
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
+						</Link>
 					)
 				})}
 			</div>

@@ -1,12 +1,7 @@
 const CartWidget = () => {
 	return (
 		<div>
-			<p className="badge text-bg-info">
-				Carrito
-				<span>
-					<i className="fa-solid fa-cart-shopping"></i>
-				</span>
-			</p>
+			<i className="fa-solid fa-cart-shopping fa-xl"></i>
 		</div>
 	)
 }
